@@ -1,0 +1,17 @@
+.footer {
+    background-color: #737784;
+    color: white;
+    padding: 15px 40px;
+    font-size: 0.75rem;
+}
+
+.footer p {
+    margin-bottom: 6px;
+    margin: 0;
+}
+
+.footer .col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
