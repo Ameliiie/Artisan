@@ -1,0 +1,17 @@
+.header {
+    background-color: #F3FAFF;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.search input {
+    width: 180px;
+}
