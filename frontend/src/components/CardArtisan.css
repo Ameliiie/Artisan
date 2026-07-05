@@ -1,0 +1,29 @@
+.card-artisan {
+    background-color: #F1F8FC;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    height: 100%; 
+    width: 250px;
+}
+
+.card-artisan img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 20px 0;
+}
+
+.card-artisan h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.card-artisan p {
+    margin-bottom: 10px;
+}
+
+.card-artisan img {
+    width: 120px;
+    height: 120px;
+}

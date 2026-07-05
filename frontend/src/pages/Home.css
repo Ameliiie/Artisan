@@ -1,0 +1,48 @@
+.home {
+    margin-top: 40px;
+}
+
+.steps h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.steps img {
+    border-radius: 8px;
+}
+
+.steps-list {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+}
+
+.steps-list li {
+    counter-increment: step;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.steps-list li::before {
+    content: counter(step);
+    width: 28px;
+    height: 28px;
+    border: 1px solid #0074c7;
+    border-radius: 50%;
+    color: #0074c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.artisans-month h2 {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.artisans-month {
+    margin-bottom: 60px;
+}
