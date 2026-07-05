@@ -1,0 +1,14 @@
+.artisan-category {
+    background-color: #0074C7;
+    color: white;
+}
+
+.artisan-category.active {
+    background-color: #00497C;
+    color: white;
+    font-weight: bold;
+}
+
+.row {
+    row-gap: 50px;
+}
