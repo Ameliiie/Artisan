@@ -16,13 +16,7 @@ function CardArtisan(props) {
                 <p>{props.ville}</p>
 
                 <p><i className="bi bi-star-fill text-warning"></i> {props.note}</p>
-<p className="text-warning">
-    <i className="bi bi-star-fill"></i>
-    <i className="bi bi-star-fill"></i>
-    <i className="bi bi-star-fill"></i>
-    <i className="bi bi-star-fill"></i>
-    <i className="bi bi-star-fill"></i>
-</p>
+
             </article>
         </Link>
     );
