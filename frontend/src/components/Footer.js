@@ -3,6 +3,7 @@ import "./Footer.css";
 function Footer() {
     return (
         <footer className="footer container-fluid">
+            <div className="container">
             <div className="row text-center text-md-start">
 
                 <div className="col">
@@ -26,6 +27,7 @@ function Footer() {
                     <p>+33 (0)4 26 73 40 00</p>
                 </div>
 
+            </div>
             </div>
         </footer>
     );

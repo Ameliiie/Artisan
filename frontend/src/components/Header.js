@@ -5,6 +5,7 @@ import logo from "../assets/images/logo.png";
 function Header() {
   return (
    <header className="header d-flex align-items-center justify-content-between px-5 py-3">
+      
       <Link to="/" className="logo">
         <img src={logo} alt="Trouve ton artisan" />
       </Link>
