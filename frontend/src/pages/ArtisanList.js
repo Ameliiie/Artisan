@@ -1,5 +1,80 @@
+import "./ArtisanList.css";
+import artisans from "../data/artisans";
+import CardArtisan from "../components/CardArtisan";
+import { useSearchParams } from "react-router-dom";
+
 function ArtisanList() {
-  return <h1>Liste des artisans</h1>;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const categorieSelectionnee =
+    searchParams.get("categorie") || "batiment";
+
+  const artisansFiltres = artisans.filter(
+    (artisan) => artisan.categorie === categorieSelectionnee
+  );
+
+  return (
+    <main className="container my-5">
+
+      <h1 className="text-center mb-5">
+        Découvrez les artisans de la région Auvergne-Rhône-Alpes
+      </h1>
+
+      <p className="text-center text-muted mb-4">
+        Choisissez une catégorie pour afficher les artisans.</p>
+
+      <div className="d-flex justify-content-center gap-4 mb-5">
+
+        <div className="d-flex justify-content-center gap-4 mb-5">
+
+          <button
+            className={`btn artisan-category ${categorieSelectionnee === "batiment" ? "active" : ""}`}
+            onClick={() => setSearchParams({ categorie: "batiment" })}>
+            Bâtiment
+          </button>
+
+          <button
+            className={`btn artisan-category ${categorieSelectionnee === "alimentation" ? "active" : ""}`}
+            onClick={() => setSearchParams({ categorie: "alimentation" })}>
+            Alimentation
+          </button>
+
+          <button
+            className={`btn artisan-category ${categorieSelectionnee === "services" ? "active" : ""}`}
+            onClick={() => setSearchParams({ categorie: "services" })}>
+            Services
+          </button>
+
+          <button
+            className={`btn artisan-category ${categorieSelectionnee === "fabrication" ? "active" : ""}`}
+            onClick={() => setSearchParams({ categorie: "fabrication" })}>
+            Fabrication
+          </button>
+
+        </div>
+
+      </div>
+      <div className="row gy-5">
+
+        {artisansFiltres.map((artisan) => (
+
+          <div className="col-md-6 d-flex justify-content-center"
+            key={artisan.id}>
+
+            <CardArtisan
+              id={artisan.id}
+              nom={artisan.nom}
+              specialite={artisan.specialite}
+              ville={artisan.ville}
+              note={artisan.note}
+              image={artisan.image}
+            />
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 }
 
 export default ArtisanList;

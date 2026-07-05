@@ -45,7 +45,9 @@ function Home() {
                 specialite={artisan.specialite}
                 ville={artisan.ville}
                 note={artisan.note}
+                image={artisan.image}
               />
+
 
             </div>
           ))}
