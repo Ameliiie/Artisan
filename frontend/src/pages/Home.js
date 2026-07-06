@@ -1,5 +1,4 @@
 import "./Home.css";
-import homeImage from "../assets/images/home.jpg";
 import CardArtisan from "../components/CardArtisan";
 import { useEffect, useState } from "react";
 
@@ -8,16 +7,17 @@ function Home() {
   const [artisans, setArtisans] = useState([]);
   useEffect(() => {
 
-  fetch("http://localhost:3001/artisans/top")
-    .then((response) => response.json())
-    .then((data) => {
-      setArtisans(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    fetch("http://localhost:3001/artisans/top")
+        .then((response) => response.json())
+        .then((data) => {
+            setArtisans(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 
 }, []);
+  
 
   return (
     <main className="home container">
@@ -29,7 +29,7 @@ function Home() {
         <div className="row align-items-center gx-5">
           <div className="col-md-6">
 
-            <img src={homeImage} alt="Artisan en intervention" className="img-fluid" />
+            <img src="/images/home.jpg" alt="Artisan en intervention" className="img-fluid" />
 
           </div>
           <div className="col-md-6">

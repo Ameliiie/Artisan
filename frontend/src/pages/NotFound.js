@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import notFoundImage from "../assets/images/notfound.jpg";
 import "./NotFound.css";
 
 function NotFound() {
@@ -7,7 +6,7 @@ function NotFound() {
     <main className="container text-center my-5 not-found">
 
       <img
-        src={notFoundImage}
+       src="/images/notfound.jpg"
         alt="Page introuvable"
         className="img-fluid mb-4"
       />

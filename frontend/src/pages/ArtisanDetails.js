@@ -42,7 +42,7 @@ function ArtisanDetails() {
         <div className="col-lg-4 text-center">
 
           <img
-            src={artisan.image}
+            src={`/images/${artisan.image}`}
             alt={artisan.nom}
             className="img-fluid rounded-circle mb-4"
           />

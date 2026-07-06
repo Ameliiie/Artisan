@@ -11,7 +11,7 @@ function ArtisanList() {
 
   const categorieSelectionnee =
     searchParams.get("categorie") || "batiment";
-
+  const recherche = searchParams.get("search")?.toLowerCase() || "";
   useEffect(() => {
     fetch("http://localhost:3001/artisans")
       .then((response) => response.json())
@@ -24,6 +24,13 @@ function ArtisanList() {
   }, []);
 
   const artisansFiltres = artisans.filter((artisan) => {
+
+    const correspondRecherche =
+      artisan.nom.toLowerCase().includes(recherche);
+
+    if (recherche) {
+      return correspondRecherche;
+    }
 
     switch (categorieSelectionnee) {
 
@@ -41,12 +48,13 @@ function ArtisanList() {
 
       default:
         return true;
-
     }
 
   });
 
   return (
+
+    
     <main className="container my-5">
 
       <h1 className="text-center mb-5">
