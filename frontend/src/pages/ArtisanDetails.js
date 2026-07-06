@@ -1,15 +1,24 @@
-import { useParams } from "react-router-dom";
-import artisans from "../data/artisans";
 import "./ArtisanDetails.css";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function ArtisanDetails() {
 
   const { id } = useParams();
+  const [artisan, setArtisan] = useState(null);
 
-  const artisan = artisans.find(
-    (artisan) => artisan.id === Number(id)
-  );
+  useEffect(() => {
+
+    fetch(`http://localhost:3001/artisans/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setArtisan(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+  }, [id]);
 
   if (!artisan) {
     return (
@@ -56,7 +65,7 @@ function ArtisanDetails() {
             </a>
           </p>
 
-          {artisan.siteWeb && (
+          {artisan.site_web && (
             <p> <strong>Site web :</strong>{" "}
               <a
                 href={artisan.siteWeb}
@@ -69,7 +78,7 @@ function ArtisanDetails() {
 
           <h3 className="mt-4">À propos</h3>
 
-          <p>{artisan.aPropos}</p>
+          <p>{artisan.a_propos}</p>
 
         </div>
 

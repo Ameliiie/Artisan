@@ -1,9 +1,23 @@
 import "./Home.css";
 import homeImage from "../assets/images/home.jpg";
-import artisans from "../data/artisans";
 import CardArtisan from "../components/CardArtisan";
+import { useEffect, useState } from "react";
 
 function Home() {
+
+  const [artisans, setArtisans] = useState([]);
+  useEffect(() => {
+
+  fetch("http://localhost:3001/artisans/top")
+    .then((response) => response.json())
+    .then((data) => {
+      setArtisans(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+}, []);
 
   return (
     <main className="home container">
