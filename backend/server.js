@@ -4,6 +4,7 @@ import helmet from "helmet";
 import dotenv from "dotenv";
 import sequelize from "./config/database.js";
 import artisanRoutes from "./routes/artisanRoutes.js";
+import categorieRoutes from "./routes/categorieRoutes.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/artisans", artisanRoutes);
+app.use("/categories", categorieRoutes);
 
 app.get("/", (req, res) => {
     res.json({
