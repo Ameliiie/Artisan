@@ -1,0 +1,89 @@
+/* Bouton retour à la liste */
+
+.btn-back {
+    background-color: rgba(205, 44, 46, 0.6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 15px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-back:hover {
+    background-color: #00497C;
+    color: white;
+}
+
+
+/*/ Formulaire de contact */
+
+.contact-form {
+    background-color: #F1F8FC;
+    padding: 40px;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.contact-form .form-control {
+    background-color: rgba(0, 116, 199, 0.2);
+    border: none;
+    padding: 14px;
+}
+
+.contact-form textarea {
+    max-width: 700px;
+    width: 100%;
+    resize: none;
+}
+
+.contact-form input {
+    width: 100%;
+    max-width: 380px;
+}
+
+.contact-form button {
+    width: 180px;
+    font-weight: bold;
+}
+
+.contact-section {
+    margin-top: 70px;
+}
+
+.contact-section h2 {
+    margin-bottom: 30px;
+}
+
+.contact-title {
+    max-width: 850px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+}
+
+.contact-form {
+    max-width: 850px;
+    margin: auto;
+}
+
+
+/*Bouton envoyer*/
+
+.btn-contact {
+    background-color: #0074C7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-contact:hover {
+    background-color: #00497C;
+    color: white;
+}

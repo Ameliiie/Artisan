@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import artisans from "../data/artisans";
+import "./ArtisanDetails.css";
+import { Link } from "react-router-dom";
 
 function ArtisanDetails() {
 
@@ -20,6 +22,12 @@ function ArtisanDetails() {
   return (
     <main className="container my-5">
 
+      <Link
+        to="/artisans?categorie=batiment"
+        className="btn btn-back mb-4" >
+        Retour à la liste
+      </Link>
+
       <div className="row">
 
         <div className="col-lg-4 text-center">
@@ -36,7 +44,7 @@ function ArtisanDetails() {
 
           <h1>{artisan.nom}</h1>
 
-          <h3>{artisan.specialite}</h3>
+          <h2>{artisan.specialite}</h2>
 
           <p> <strong>Ville :</strong> {artisan.ville}</p>
 
@@ -59,13 +67,54 @@ function ArtisanDetails() {
             </p>
           )}
 
-          <h4 className="mt-4">À propos</h4>
+          <h3 className="mt-4">À propos</h3>
 
           <p>{artisan.aPropos}</p>
 
         </div>
 
       </div>
+
+      <section className="contact-section">
+
+        <h3 className="contact-title"> Nous contacter :</h3>
+
+        <form className="contact-form">
+
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Votre Nom"
+          />
+
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Votre Email"
+          />
+
+          <input
+            type="text"
+            className="form-control"
+            placeholder="L'objet de votre message"
+          />
+
+          <textarea
+            className="form-control"
+            rows="6"
+            placeholder="Votre message"
+          ></textarea>
+
+          <button
+            type="submit"
+            className="btn btn-contact"
+          >
+            Envoyer
+          </button>
+
+        </form>
+
+      </section>
 
     </main>
   );
