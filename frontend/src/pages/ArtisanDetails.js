@@ -38,29 +38,22 @@ function ArtisanDetails() {
 
           <h3>{artisan.specialite}</h3>
 
-          <p>
-            <strong>Ville :</strong> {artisan.ville}
-          </p>
+          <p> <strong>Ville :</strong> {artisan.ville}</p>
 
-          <p>
-            <strong>Note :</strong> ⭐ {artisan.note}
-          </p>
+          <p><strong>Note :</strong> ⭐ {artisan.note}</p>
 
-          <p>
-            <strong>Email :</strong>{" "}
+          <p> <strong>Email :</strong>{" "}
             <a href={`mailto:${artisan.email}`}>
               {artisan.email}
             </a>
           </p>
 
           {artisan.siteWeb && (
-            <p>
-              <strong>Site web :</strong>{" "}
+            <p> <strong>Site web :</strong>{" "}
               <a
                 href={artisan.siteWeb}
                 target="_blank"
-                rel="noreferrer"
-              >
+                rel="noreferrer">
                 {artisan.siteWeb}
               </a>
             </p>

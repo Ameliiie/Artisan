@@ -1,0 +1,33 @@
+.not-found {
+    min-height: 70vh;
+}
+
+.not-found img {
+    max-width: 450px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.not-found h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.not-found p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    margin-top: 20px;
+}
+
+/* Bouton revenir à l'accueil */
+
+.btn-home {
+    background-color: rgba(205, 44, 46, 0.6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 36px;
+    font-weight: 600;
+    transition: 0.2s;
+    margin-top: 50px;
+}
