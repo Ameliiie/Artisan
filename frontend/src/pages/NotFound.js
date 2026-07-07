@@ -1,26 +1,37 @@
 import { Link } from "react-router-dom";
 import "./NotFound.css";
+import { Helmet } from "react-helmet-async";
 
 function NotFound() {
   return (
-    <main className="container text-center my-5 not-found">
+    <>
+      <Helmet>
+        <title>Page non trouvée - Trouve ton artisan</title>
+        <meta
+          name="description"
+          content="La page demandée est introuvable."
+        />
+      </Helmet>
+      <main className="container text-center my-5 not-found">
 
-      <img
-       src="/images/notfound.jpg"
-        alt="Page introuvable"
-        className="img-fluid mb-4"
-      />
+        <img
+          src="/images/notfound.jpg"
+          alt="Page introuvable"
+          className="img-fluid mb-4"
+        />
 
-      <h1>Page non trouvée</h1>
+        <h1>Page non trouvée</h1>
 
-      <p className="fs-5">
-        La page que vous recherchez est introuvable
-      </p>
-      <Link to="/" className="btn btn-home">
-        Retour à l'accueil
-      </Link>
+        <p className="fs-5">
+          La page que vous recherchez est introuvable
+        </p>
+        <Link to="/" className="btn btn-home">
+          Retour à l'accueil
+        </Link>
 
-    </main>
+      </main>
+
+    </>
   );
 }
 

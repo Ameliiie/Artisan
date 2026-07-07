@@ -7,6 +7,13 @@ function ArtisanDetails() {
   const { id } = useParams();
   const [artisan, setArtisan] = useState(null);
 
+  const [formData, setFormData] = useState({
+    nom: "",
+    email: "",
+    objet: "",
+    message: "",
+  });
+
   useEffect(() => {
 
     fetch(`http://localhost:3001/artisans/${id}`)
@@ -19,7 +26,33 @@ function ArtisanDetails() {
       });
 
   }, [id]);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      alert(data.message);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
   if (!artisan) {
     return (
       <main className="container my-5">
@@ -88,32 +121,42 @@ function ArtisanDetails() {
 
         <h3 className="contact-title"> Nous contacter :</h3>
 
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
 
           <input
             type="text"
+            name="nom"
             className="form-control"
             placeholder="Votre Nom"
+            value={formData.nom}
+            onChange={handleChange}
           />
 
           <input
             type="email"
+            name="email"
             className="form-control"
             placeholder="Votre Email"
+            value={formData.email}
+            onChange={handleChange}
           />
 
           <input
             type="text"
+            name="objet"
             className="form-control"
             placeholder="L'objet de votre message"
+            value={formData.objet}
+            onChange={handleChange}
           />
-
           <textarea
+            name="message"
             className="form-control"
             rows="6"
             placeholder="Votre message"
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
-
           <button
             type="submit"
             className="btn btn-contact"

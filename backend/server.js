@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import sequelize from "./config/database.js";
 import artisanRoutes from "./routes/artisanRoutes.js";
 import categorieRoutes from "./routes/categorieRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(cors({
 app.use(express.json());
 app.use("/artisans", artisanRoutes);
 app.use("/categories", categorieRoutes);
+app.use("/contact", contactRoutes);
 
 app.get("/", (req, res) => {
     res.json({
