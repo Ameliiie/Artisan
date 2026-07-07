@@ -1,17 +1,49 @@
 .footer {
     background-color: #737784;
     color: white;
-    padding: 15px 40px;
+    padding: 12px 40px;
     font-size: 0.75rem;
 }
 
 .footer p {
-    margin-bottom: 6px;
     margin: 0;
 }
 
-.footer .col {
+/* Colonnes Mentions légales et Données personnelles */
+
+.footer .col:nth-child(1),
+.footer .col:nth-child(2) {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 22px;
+}
+
+/* Colonne Adresse */
+
+.footer .col:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Téléphone */
+
+.footer .col:nth-child(3) p:last-child {
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    .footer {
+        padding: 20px;
+    }
+
+    .footer .row{
+        gap:25px;
+        text-align:center;
+    }
+
 }

@@ -5,7 +5,12 @@ import { Helmet } from "react-helmet-async";
 
 function Home() {
 
+  /* État */
+
   const [artisans, setArtisans] = useState([]);
+
+  /* Chargement des artisans du mois */
+
   useEffect(() => {
 
     fetch("http://localhost:3001/artisans/top")
@@ -22,7 +27,7 @@ function Home() {
 
   return (
     <>
-
+      {/* SEO */}
       <Helmet>
         <title>Trouve ton artisan - Accueil</title>
         <meta
@@ -32,6 +37,8 @@ function Home() {
       </Helmet>
 
       <main className="home container">
+
+        {/* Étapes */}
 
         <section className="steps">
 
@@ -55,6 +62,9 @@ function Home() {
             </div>
           </div>
         </section>
+
+        {/* Artisans du mois */}
+
         <section className="artisans-month">
 
           <h2>Nos trois artisans du mois :</h2>

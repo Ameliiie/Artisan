@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet-async";
 function NotFound() {
   return (
     <>
+
+    {/* SEO */}
+
       <Helmet>
         <title>Page non trouvée - Trouve ton artisan</title>
         <meta
@@ -12,6 +15,9 @@ function NotFound() {
           content="La page demandée est introuvable."
         />
       </Helmet>
+
+      {/* Contenu de la page */}
+
       <main className="container text-center my-5 not-found">
 
         <img

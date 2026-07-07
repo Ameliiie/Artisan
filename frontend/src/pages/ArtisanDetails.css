@@ -87,3 +87,12 @@
     background-color: #00497C;
     color: white;
 }
+
+/* Image artisan */
+
+.col-lg-4 img {
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+    object-fit: cover;
+}

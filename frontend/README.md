@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# Trouve ton artisan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Trouve ton artisan est une application web réalisée dans le cadre de la formation Développeur Web du Centre Européen de Formation.
 
-In the project directory, you can run:
+Cette plateforme permet aux particuliers de rechercher un artisan de la région Auvergne-Rhône-Alpes, de consulter sa fiche détaillée et de le contacter via un formulaire.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies utilisées
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Front-end
 
-### `npm test`
+- React
+- Bootstrap
+- Sass
+- React Router
+- React Helmet Async
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Back-end
 
-### `npm run build`
+- Node.js
+- Express
+- Sequelize
+- MySQL
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Outils
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Visual Studio Code
+- Git
+- GitHub
+- Figma
+- phpMyAdmin
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Prérequis
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Avant d'installer le projet, vous devez disposer de :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js
+- npm
+- MySQL ou MariaDB
+- Git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+Cloner le dépôt GitHub :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/VOTRE-LIEN-GITHUB.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Se placer dans le dossier du projet :
 
-### Code Splitting
+```bash
+cd trouve-ton-artisan
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Installation des dépendances
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Front-end
 
-### Making a Progressive Web App
+```bash
+cd frontend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Back-end
 
-### Advanced Configuration
+```bash
+cd backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Créer un fichier `.env` dans le dossier **backend** contenant les informations de connexion à la base de données.
 
-### `npm run build` fails to minify
+Exemple :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```env
+DB_HOST=localhost
+DB_NAME=trouve_ton_artisan
+DB_USER=root
+DB_PASSWORD=
+DB_PORT=3306
+PORT=3001
+```
+
+---
+
+## Base de données
+
+Le dépôt contient :
+
+- `schema.sql` : script de création de la base de données.
+- `data.sql` : script d'alimentation de la base de données.
+
+Importer d'abord **schema.sql**, puis **data.sql** dans MySQL ou phpMyAdmin.
+
+---
+
+## Lancement du projet
+
+### Démarrer le backend
+
+```bash
+cd backend
+npm start
+```
+
+Le serveur sera accessible à l'adresse :
+
+```
+http://localhost:3001
+```
+
+---
+
+### Démarrer le frontend
+
+```bash
+cd frontend
+npm start
+```
+
+Le site sera accessible à l'adresse :
+
+```
+http://localhost:3000
+```
+
+---
+
+
+## Crédits
+
+Les images utilisées dans ce projet proviennent de :
+
+- Pixabay : https://pixabay.com/
+- Logo et favicon fournis dans le cadre du projet par le Centre Européen de Formation (CEF).
+
+
+## Auteur
+
+Projet réalisé par **Amélie Barbier** dans le cadre de la formation Développeur Web du Centre Européen de Formation.
+
+---
+
+## Licence
+
+Projet pédagogique réalisé dans le cadre de la formation du Centre Européen de Formation.

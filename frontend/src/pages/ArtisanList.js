@@ -6,13 +6,18 @@ import { Helmet } from "react-helmet-async";
 
 function ArtisanList() {
 
-  const [artisans, setArtisans] = useState([]);
+  /* États */
 
+  const [artisans, setArtisans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const categorieSelectionnee =
     searchParams.get("categorie") || "batiment";
+
   const recherche = searchParams.get("search")?.toLowerCase() || "";
+
+  /* Chargement des artisans */
+
   useEffect(() => {
     fetch("http://localhost:3001/artisans")
       .then((response) => response.json())
@@ -23,6 +28,8 @@ function ArtisanList() {
         console.error(error);
       });
   }, []);
+
+  /* Filtrage des artisans */
 
   const artisansFiltres = artisans.filter((artisan) => {
 
@@ -55,6 +62,9 @@ function ArtisanList() {
 
   return (
     <>
+
+      {/* SEO */}
+
       <Helmet>
         <title>Trouve ton artisan - Liste des artisans</title>
         <meta
@@ -74,7 +84,9 @@ function ArtisanList() {
           Choisissez une catégorie pour afficher les artisans.
         </p>
 
-        <div className="d-flex justify-content-center gap-4 mb-5">
+        {/* Filtre catégorie */}
+        
+        <div className="categories-container d-flex justify-content-center gap-4 mb-5">
 
           <button
             className={`btn artisan-category ${categorieSelectionnee === "batiment" ? "active" : ""}`}
