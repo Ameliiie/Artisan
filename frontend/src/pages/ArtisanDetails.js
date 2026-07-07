@@ -1,16 +1,58 @@
-import { useParams } from "react-router-dom";
-import artisans from "../data/artisans";
 import "./ArtisanDetails.css";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function ArtisanDetails() {
 
   const { id } = useParams();
+  const [artisan, setArtisan] = useState(null);
 
-  const artisan = artisans.find(
-    (artisan) => artisan.id === Number(id)
-  );
+  const [formData, setFormData] = useState({
+    nom: "",
+    email: "",
+    objet: "",
+    message: "",
+  });
 
+  useEffect(() => {
+
+    fetch(`http://localhost:3001/artisans/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setArtisan(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+  }, [id]);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      alert(data.message);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
   if (!artisan) {
     return (
       <main className="container my-5">
@@ -33,7 +75,7 @@ function ArtisanDetails() {
         <div className="col-lg-4 text-center">
 
           <img
-            src={artisan.image}
+            src={`/images/${artisan.image}`}
             alt={artisan.nom}
             className="img-fluid rounded-circle mb-4"
           />
@@ -56,7 +98,7 @@ function ArtisanDetails() {
             </a>
           </p>
 
-          {artisan.siteWeb && (
+          {artisan.site_web && (
             <p> <strong>Site web :</strong>{" "}
               <a
                 href={artisan.siteWeb}
@@ -69,7 +111,7 @@ function ArtisanDetails() {
 
           <h3 className="mt-4">À propos</h3>
 
-          <p>{artisan.aPropos}</p>
+          <p>{artisan.a_propos}</p>
 
         </div>
 
@@ -79,32 +121,42 @@ function ArtisanDetails() {
 
         <h3 className="contact-title"> Nous contacter :</h3>
 
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
 
           <input
             type="text"
+            name="nom"
             className="form-control"
             placeholder="Votre Nom"
+            value={formData.nom}
+            onChange={handleChange}
           />
 
           <input
             type="email"
+            name="email"
             className="form-control"
             placeholder="Votre Email"
+            value={formData.email}
+            onChange={handleChange}
           />
 
           <input
             type="text"
+            name="objet"
             className="form-control"
             placeholder="L'objet de votre message"
+            value={formData.objet}
+            onChange={handleChange}
           />
-
           <textarea
+            name="message"
             className="form-control"
             rows="6"
             placeholder="Votre message"
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
-
           <button
             type="submit"
             className="btn btn-contact"

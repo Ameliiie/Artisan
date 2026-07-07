@@ -6,7 +6,10 @@ function CardArtisan(props) {
         <Link to={`/artisan/${props.id}`} className="text-decoration-none text-dark">
             <article className="card-artisan">
 
-                <img  src={props.image}   alt={props.nom} />
+                <img
+                    src={`/images/${props.image}`}
+                    alt={props.nom}
+                />
 
                 <h3>{props.nom}</h3>
 
