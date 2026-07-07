@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 
 function Header() {
 
+  /* Etat */
   const [recherche, setRecherche] = useState("");
   const [categories, setCategories] = useState([]);
-
   const navigate = useNavigate();
 
-  const handleSearch = (e) => {
+  /* Recherche */
 
+  const handleSearch = (e) => {
     if (e.key === "Enter" && recherche.trim() !== "") {
 
       navigate(`/artisans?search=${recherche}`);
@@ -18,6 +19,9 @@ function Header() {
     }
 
   };
+
+  /* Chargement des catégories */
+
 
   useEffect(() => {
 
@@ -31,15 +35,18 @@ function Header() {
       });
 
   }, []);
+
+
   return (
     <header className="header d-flex align-items-center justify-content-between px-5 py-3">
+      
+      {/* Navigation */}
 
       <Link to="/" className="logo">
         <img src="/images/logo.png" alt="Trouve ton artisan" />
       </Link>
 
-      <nav className="navigation d-flex gap-5">
-
+      <nav className="navigation d-flex">
         {categories.map((categorie) => (
 
           <Link
@@ -53,10 +60,11 @@ function Header() {
           </Link>
 
         ))}
-
       </nav>
 
-      <div className="search ms-5">
+      {/* Barre de recherche */}
+
+      <div className="search">
         <input
           type="search"
           placeholder="Recherche d'un artisan"
@@ -65,6 +73,7 @@ function Header() {
           onKeyDown={handleSearch}
         />
       </div>
+
     </header>
   );
 }

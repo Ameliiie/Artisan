@@ -1,6 +1,10 @@
+/* Mise en pae générale*/
+
 .home {
     margin-top: 40px;
 }
+
+/* Étapes */
 
 .steps h2 {
     text-align: center;
@@ -37,6 +41,8 @@
     margin-right: 12px;
     font-weight: bold;
 }
+
+/* Artisans du mois */
 
 .artisans-month h2 {
     text-align: center;
